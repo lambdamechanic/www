@@ -287,20 +287,22 @@ h1 {
 
 .oss-link {
   margin-top: auto;
-  align-self: flex-start;
-  padding: 0.55rem 1rem;
+  align-self: center;
+  padding: 0.6rem 1.2rem;
   border-radius: 999px;
-  border: 1px solid rgba(216, 168, 96, 0.32);
-  color: var(--accent);
+  border: 1px solid rgba(216, 168, 96, 0.4);
+  background: rgba(216, 168, 96, 0.12);
+  color: var(--accent-strong);
   font-weight: 600;
   font-size: 0.95rem;
   transition: background-color 0.2s ease, color 0.2s ease,
-    transform 0.2s ease;
+    transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .oss-link:hover {
-  background: rgba(216, 168, 96, 0.14);
+  background: rgba(216, 168, 96, 0.24);
   color: var(--text);
+  box-shadow: 0 12px 25px rgba(12, 10, 8, 0.35);
   transform: translateY(-1px);
 }
 
