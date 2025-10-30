@@ -336,6 +336,32 @@ h1 {
     1;
 }
 
+.card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 1.6rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.card-link::after {
+  content: "→";
+  font-size: 0.9rem;
+  transition: transform 0.2s ease;
+}
+
+.card-link:hover {
+  color: var(--accent-strong);
+  transform: translateX(2px);
+}
+
+.card-link:hover::after {
+  transform: translateX(2px);
+}
+
 .expertise-grid {
   display: grid;
   gap: 2rem;
