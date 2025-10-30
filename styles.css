@@ -185,12 +185,13 @@ h1 {
 
 .btn.primary {
   background-color: var(--accent);
-  color: #2c1f0f;
+  color: #1f1408;
   box-shadow: 0 18px 40px rgba(216, 168, 96, 0.4);
 }
 
 .btn.primary:hover {
   background-color: var(--accent-strong);
+  color: #1f1408;
   transform: translateY(-2px);
 }
 
@@ -481,6 +482,24 @@ h1 {
 
 .footer-links a:hover {
   color: var(--accent);
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-alt);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(216, 168, 96, 0.3);
+  border-radius: 999px;
+  border: 3px solid var(--bg-alt);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(216, 168, 96, 0.5);
 }
 
 @media (max-width: 900px) {
