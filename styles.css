@@ -275,6 +275,35 @@ h1 {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
+.oss-grid {
+  gap: 2.2rem;
+}
+
+.oss-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.oss-link {
+  margin-top: auto;
+  align-self: flex-start;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(216, 168, 96, 0.32);
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease, color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.oss-link:hover {
+  background: rgba(216, 168, 96, 0.14);
+  color: var(--text);
+  transform: translateY(-1px);
+}
+
 .card {
   background: var(--card-bg);
   border: 1px solid var(--border);
