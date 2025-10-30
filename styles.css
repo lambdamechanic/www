@@ -29,6 +29,7 @@ body {
   background: linear-gradient(180deg, var(--bg) 0%, #152317 55%, #1d2f20 100%);
   color: var(--text);
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 a {
@@ -436,11 +437,13 @@ h1 {
 .footer-links {
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .footer-links a {
   color: var(--muted);
   transition: color 0.2s ease;
+  overflow-wrap: anywhere;
 }
 
 .footer-links a:hover {
