@@ -11,26 +11,44 @@
       <div class="container">
         <h1>LLM-Driven Data Extraction</h1>
         <p>
-          We built an autonomous crawler factory that ships production-grade Scrapy agents from a single URL prompt.
+          Arachnomancer powers this lab build: an autonomous crawler factory that turns a seed URL and schema sketch into a typed scraper in under an hour.
         </p>
         <p>
-          The service orchestrates Haskell control planes, managed LLM planning, and a library of validated crawling primitives to deliver new collectors in minutes instead of weeks.
+          It discovers the right pages, narrows the HTML to what matters, and lets LLMs propose the structure before we lock everything back into deterministic selectors your team can own.
         </p>
-        <h2>How it works</h2>
+        <h2>What teams get</h2>
         <ul>
           <li>
-            <strong>Prompt-to-plan.</strong> We seed the system with a URL and desired schema; the LLM produces a crawl plan that our type-checked Haskell layer validates.
+            <strong>Schema-first delivery.</strong>
+            You define the fields you need and receive production Scrapy projects that emit JSON or CSV straight into your pipeline.
           </li>
           <li>
-            <strong>Reusable primitives.</strong> Agents assemble from a catalog of vetted Scrapy components, keeping the AI-generated portion small and auditable.
+            <strong>Repeatable launches.</strong>
+            Cached plans, reusable primitives, and simulated runs keep new collectors shipping in minutes instead of weeks.
           </li>
           <li>
-            <strong>Safety rails.</strong> Generative tests probe each agent before release, catching anti-scraping blocks or schema drift early.
+            <strong>Operational guardrails.</strong>
+            Generative tests and proxy-aware fetchers catch anti-bot traps and schema drift before anything hits production.
+          </li>
+        </ul>
+        <h2>Inside the pipeline</h2>
+        <ul>
+          <li>
+            <strong>Target discovery.</strong>
+            We triage every link off the seed domain, score the ones that look like real items, and learn navigation patterns automatically.
+          </li>
+          <li>
+            <strong>Signal isolation.</strong>
+            Shared boilerplate is stripped away, then an LLM proposes candidate fields and example values for the item pages we keep.
+          </li>
+          <li>
+            <strong>Selector synthesis.</strong>
+            Deterministic XPath and JSON selectors are mined from those examples, validated with automated scoring, and packaged as code you can extend.
           </li>
         </ul>
         <h2>Why it matters</h2>
         <p>
-          Teams collecting market or compliance data can stand up new crawlers on demand, with deterministic code they can own and extend.
+          Teams collecting market or compliance data can stand up new crawlers on demand with deterministic code they can own and extend.
         </p>
         <p>
           Want to talk through the architecture or adapt it to your domain?

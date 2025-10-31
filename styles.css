@@ -299,7 +299,11 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
-  padding: 1.4rem;
+  padding: 1rem 1.1rem;
+}
+
+.oss-card p {
+  margin: 0;
 }
 
 .oss-card h3 {

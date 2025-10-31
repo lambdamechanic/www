@@ -11,21 +11,39 @@
       <div class="container">
         <h1>Shake-Based LLM Pipeline Framework</h1>
         <p>
-          We are adapting the Shake build system to drive file-focused recomputation for LLM-dependent workflow stages.
+          ShakingSpider takes the established Arachnomancer extraction flow and rebuilds it with Shake so we can evaluate Shake as the orchestration layer for LLM-heavy pipelines.
         </p>
         <p>
-          By treating every prompt, retrieval, and post-processing step as a dependency-aware target, the framework unlocks parallel execution and avoids re-running expensive calls that have not changed.
+          By running a familiar domain through Shake rules, we quantify what the build graph buys us: reproducible runs, parallel rebuilds, and diffable artefacts before applying the pattern elsewhere.
         </p>
-        <h2>Capabilities</h2>
+        <h2>What it unlocks</h2>
         <ul>
           <li>
-            <strong>Deterministic dependency graph.</strong> Shake gives us a programmatic view of which artifacts depend on which prompts, so we never chase hidden state.
+            <strong>Deterministic orchestration.</strong>
+            Shake’s dependency tracking keeps the frontier, fetches, classifications, and extracts in sync without hidden state.
           </li>
           <li>
-            <strong>Fast experiment loops.</strong> Engineers tweak a prompt or model, rerun the build, and see only the relevant stages recompute.
+            <strong>Fast experiment loops.</strong>
+            Engineers tweak a prompt or model, rerun the build, and see only the relevant stages recompute.
           </li>
           <li>
-            <strong>Cost control.</strong> Cached outputs keep API usage predictable, and the system flags long dependency chains that would trigger full rebuilds.
+            <strong>Cost control.</strong>
+            Cached outputs keep API usage predictable, and the system flags long dependency chains that would trigger full rebuilds.
+          </li>
+        </ul>
+        <h2>Pipeline anatomy</h2>
+        <ul>
+          <li>
+            <strong>Fetch batches.</strong>
+            Shake materialises every URL fetch into a directory structure that mirrors the site, complete with sidecar metadata for proxies and request headers.
+          </li>
+          <li>
+            <strong>LLM classification.</strong>
+            Cached prompts tag each page as navigational or item content, feeding the next crawl frontier and keeping provenance for later audits.
+          </li>
+          <li>
+            <strong>Selector validation.</strong>
+            Downstream rules plug in selector-scoring hooks so extraction heuristics stay measurable and easy to extend.
           </li>
         </ul>
         <h2>Next steps</h2>
