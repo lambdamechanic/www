@@ -183,7 +183,9 @@ h1 {
   border: 1px solid transparent;
 }
 
-.btn.primary {
+
+.btn.primary,
+.btn.primary:visited {
   background-color: var(--accent);
   color: #1b0f04;
   box-shadow: 0 18px 40px rgba(216, 168, 96, 0.4);
