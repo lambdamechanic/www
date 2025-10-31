@@ -380,6 +380,22 @@ h1 {
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
+.expertise-chip {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.expertise-chip strong {
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.expertise-chip span {
+  color: var(--muted);
+}
+
 .approach-steps {
   list-style: none;
   display: grid;
