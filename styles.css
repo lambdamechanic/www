@@ -139,7 +139,7 @@ a {
 }
 
 .hero-intro {
-  max-width: 46ch;
+  max-width: none;
 }
 
 .eyebrow {
@@ -509,10 +509,6 @@ h1 {
 @media (max-width: 900px) {
   .hero-grid {
     grid-template-columns: 1fr;
-  }
-
-  .hero-intro {
-    max-width: none;
   }
 
   .about-grid {
