@@ -184,13 +184,13 @@ h1 {
 }
 
 .btn.primary {
-  background-color: var(--accent);
+  background-color: #f6d18f;
   color: #1f1408;
-  box-shadow: 0 18px 40px rgba(216, 168, 96, 0.4);
+  box-shadow: 0 18px 40px rgba(216, 168, 96, 0.35);
 }
 
 .btn.primary:hover {
-  background-color: var(--accent-strong);
+  background-color: var(--accent);
   color: #1f1408;
   transform: translateY(-2px);
 }
