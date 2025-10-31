@@ -128,7 +128,7 @@ a {
 }
 
 .hero {
-  padding: 3.5rem 0;
+  padding: 2rem 0;
 }
 
 .hero-grid {
@@ -258,7 +258,7 @@ h1 {
 }
 
 .section {
-  padding: 3.5rem 0;
+  padding: 2rem 0;
 }
 
 .section.alt {
@@ -267,7 +267,7 @@ h1 {
 
 .section-heading {
   max-width: 68ch;
-  margin-bottom: 2.25rem;
+  margin-bottom: 1.75rem;
 }
 
 .section-heading p {
