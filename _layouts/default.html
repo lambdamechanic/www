@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% if page.title %}{{ page.title }} · LambdaMechanic{% else %}LambdaMechanic Consulting{% endif %}</title>
+    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}LambdaMechanic offers senior software consulting for hard technical problems, LLM systems, and backend architecture.{% endif %}" />
+    <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="32x32" />
+    <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}" />
+  </head>
+  <body>
+    <header class="site-header" id="top">
+      <div class="container header-inner">
+        <a class="logo" href="{{ '/' | relative_url }}#top">
+          <img
+            alt="LambdaMechanic logo"
+            height="56"
+            src="{{ '/logo.png' | relative_url }}"
+            width="56"
+          />
+        </a>
+        <nav class="nav" aria-label="Primary" id="primary-navigation">
+          <a href="{{ '/' | relative_url }}#services">Services</a>
+          <a href="{{ '/' | relative_url }}#engagements">Engagements</a>
+          <a href="{{ '/' | relative_url }}#expertise">Expertise</a>
+          <a href="{{ '/' | relative_url }}#approach">Approach</a>
+          <a href="{{ '/' | relative_url }}#about">About</a>
+        </nav>
+        <button
+          aria-controls="primary-navigation"
+          aria-expanded="false"
+          class="nav-toggle"
+          type="button"
+        >
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="sr-only">Toggle navigation</span>
+        </button>
+      </div>
+    </header>
+    <main>
+      {{ content }}
+    </main>
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>© 2025 LambdaMechanic. All rights reserved.</span>
+        <div class="footer-links">
+          <a href="https://github.com/lambdamechanic">gh/lambdamechanic</a>
+          <a href="https://github.com/mwotton">gh/mwotton</a>
+          <a href="https://linkedin.com/in/mwotton">LinkedIn</a>
+        </div>
+      </div>
+    </footer>
+    <script>
+      const navToggle = document.querySelector(".nav-toggle");
+      const nav = document.querySelector(".nav");
+      if (navToggle && nav) {
+        navToggle.addEventListener("click", () => {
+          const expanded = navToggle.getAttribute("aria-expanded") === "true";
+          navToggle.setAttribute("aria-expanded", String(!expanded));
+          nav.classList.toggle("nav-open");
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,2 +1,8 @@
 exclude:
   - AGENTS.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .bundle
+  - node_modules
+  - .gitignore

@@ -1,63 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>LLM-Driven Data Extraction · LambdaMechanic Labs</title>
-    <link rel="stylesheet" href="../styles.css" />
-  </head>
-  <body>
-    <main class="section" id="lab-llm-data-extraction">
-      <div class="container">
-        <h1>LLM-Driven Data Extraction</h1>
-        <p>
-          Arachnomancer powers this lab build: an autonomous crawler factory that turns a seed URL and schema sketch into a typed scraper in under an hour.
-        </p>
-        <p>
-          It discovers the right pages, narrows the HTML to what matters, and lets LLMs propose the structure before we lock everything back into deterministic selectors your team can own.
-        </p>
-        <h2>What teams get</h2>
-        <ul>
-          <li>
-            <strong>Schema-first delivery.</strong>
-            You define the fields you need and receive production Scrapy projects that emit JSON or CSV straight into your pipeline.
-          </li>
-          <li>
-            <strong>Repeatable launches.</strong>
-            Cached plans, reusable primitives, and simulated runs keep new collectors shipping in minutes instead of weeks.
-          </li>
-          <li>
-            <strong>Operational guardrails.</strong>
-            Generative tests and proxy-aware fetchers catch anti-bot traps and schema drift before anything hits production.
-          </li>
-        </ul>
-        <h2>Inside the pipeline</h2>
-        <ul>
-          <li>
-            <strong>Target discovery.</strong>
-            We triage every link off the seed domain, score the ones that look like real items, and learn navigation patterns automatically.
-          </li>
-          <li>
-            <strong>Signal isolation.</strong>
-            Shared boilerplate is stripped away, then an LLM proposes candidate fields and example values for the item pages we keep.
-          </li>
-          <li>
-            <strong>Selector synthesis.</strong>
-            Deterministic XPath and JSON selectors are mined from those examples, validated with automated scoring, and packaged as code you can extend.
-          </li>
-        </ul>
-        <h2>Why it matters</h2>
-        <p>
-          Teams collecting market or compliance data can stand up new crawlers on demand with deterministic code they can own and extend.
-        </p>
-        <p>
-          Want to talk through the architecture or adapt it to your domain?
-          <a href="https://calendly.com/mark-lambdamechanic/30min">Start your agent build</a>.
-        </p>
-        <p>
-          <a href="../index.html">← Back to LambdaMechanic</a>
-        </p>
-      </div>
-    </main>
-  </body>
-</html>
+---
+layout: default
+title: LLM-Driven Data Extraction
+description: How LambdaMechanic turns a single URL prompt into production-ready crawlers with Arachnomancer.
+---
+
+<section class="section lab-detail" id="lab-llm-data-extraction">
+  <div class="container">
+    <h1>LLM-Driven Data Extraction</h1>
+    <p>
+      Arachnomancer powers this lab build: an autonomous crawler factory that turns a seed URL and schema sketch into a typed scraper in under an hour.
+    </p>
+    <p>
+      It discovers the right pages, narrows the HTML to what matters, and lets LLMs propose the structure before we lock everything back into deterministic selectors your team can own.
+    </p>
+    <h2>What teams get</h2>
+    <ul>
+      <li>
+        <strong>Schema-first delivery.</strong>
+        You define the fields you need and receive production Scrapy projects that emit JSON or CSV straight into your pipeline.
+      </li>
+      <li>
+        <strong>Repeatable launches.</strong>
+        Cached plans, reusable primitives, and simulated runs keep new collectors shipping in minutes instead of weeks.
+      </li>
+      <li>
+        <strong>Operational guardrails.</strong>
+        Generative tests and proxy-aware fetchers catch anti-bot traps and schema drift before anything hits production.
+      </li>
+    </ul>
+    <h2>Inside the pipeline</h2>
+    <ul>
+      <li>
+        <strong>Target discovery.</strong>
+        We triage every link off the seed domain, score the ones that look like real items, and learn navigation patterns automatically.
+      </li>
+      <li>
+        <strong>Signal isolation.</strong>
+        Shared boilerplate is stripped away, then an LLM proposes candidate fields and example values for the item pages we keep.
+      </li>
+      <li>
+        <strong>Selector synthesis.</strong>
+        Deterministic XPath and JSON selectors are mined from those examples, validated with automated scoring, and packaged as code you can extend.
+      </li>
+    </ul>
+    <h2>Why it matters</h2>
+    <p>
+      Teams collecting market or compliance data can stand up new crawlers on demand with deterministic code they can own and extend.
+    </p>
+    <p>
+      Want to talk through the architecture or adapt it to your domain?
+    </p>
+    <div class="lab-cta">
+      <a class="btn primary" href="https://calendly.com/mark-lambdamechanic/30min">Start your agent build</a>
+    </div>
+    <p>
+      <a href="{{ '/' | relative_url }}">← Back to LambdaMechanic</a>
+    </p>
+  </div>
+</section>

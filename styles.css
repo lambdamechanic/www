@@ -478,8 +478,32 @@ h1 {
   font-weight: 600;
 }
 
+.contact-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.6rem;
+  align-self: flex-end;
+  width: 100%;
+}
+
+.contact-actions .btn {
+  width: fit-content;
+}
+
 .contact-text {
   color: var(--muted);
+}
+
+.lab-detail {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.lab-cta {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .site-footer {
