@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shake-Based LLM Pipeline Framework · LambdaMechanic Labs</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <main class="section" id="lab-shake-pipeline">
+      <div class="container">
+        <h1>Shake-Based LLM Pipeline Framework</h1>
+        <p>
+          We are adapting the Shake build system to drive file-focused recomputation for LLM-dependent workflow stages.
+        </p>
+        <p>
+          By treating every prompt, retrieval, and post-processing step as a dependency-aware target, the framework unlocks parallel execution and avoids re-running expensive calls that have not changed.
+        </p>
+        <h2>Capabilities</h2>
+        <ul>
+          <li>
+            <strong>Deterministic dependency graph.</strong> Shake gives us a programmatic view of which artifacts depend on which prompts, so we never chase hidden state.
+          </li>
+          <li>
+            <strong>Fast experiment loops.</strong> Engineers tweak a prompt or model, rerun the build, and see only the relevant stages recompute.
+          </li>
+          <li>
+            <strong>Cost control.</strong> Cached outputs keep API usage predictable, and the system flags long dependency chains that would trigger full rebuilds.
+          </li>
+        </ul>
+        <h2>Next steps</h2>
+        <p>
+          We are packaging the framework for teams running large evaluation suites or agent fleets that need reliable, low-latency refreshes.
+        </p>
+        <p>
+          Curious how this could slot into your workflow?
+          <a href="https://calendly.com/mark-lambdamechanic/30min">Start your agent build</a>.
+        </p>
+        <p>
+          <a href="../index.html">← Back to LambdaMechanic</a>
+        </p>
+      </div>
+    </main>
+  </body>
+</html>
