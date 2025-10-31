@@ -128,13 +128,18 @@ a {
 }
 
 .hero {
-  padding: 8rem 0 5rem;
+  padding: 7rem 0 5rem;
 }
 
 .hero-grid {
   display: grid;
-  gap: 3.5rem;
+  gap: 3rem;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+}
+
+.hero-intro {
+  max-width: 46ch;
 }
 
 .eyebrow {
@@ -161,7 +166,7 @@ h1 {
 .hero .lede {
   font-size: 1.1rem;
   color: var(--muted);
-  max-width: 34ch;
+  max-width: 48ch;
 }
 
 .hero-actions {
@@ -504,6 +509,10 @@ h1 {
 @media (max-width: 900px) {
   .hero-grid {
     grid-template-columns: 1fr;
+  }
+
+  .hero-intro {
+    max-width: none;
   }
 
   .about-grid {
