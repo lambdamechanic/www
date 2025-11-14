@@ -1,0 +1,42 @@
+---
+layout: default
+title: LambdaMechanic Blog
+description: Field notes on shipping correctness-first systems, AI infrastructure, and consulting practice.
+permalink: /blog/
+---
+
+<section class="section blog-hero">
+  <div class="container">
+    <p class="eyebrow">LambdaMechanic Blog</p>
+    <h1>Field notes on ambitious systems</h1>
+    <p class="lede">
+      These essays capture the debugging stories, operating models, and architectural guardrails that keep demanding client projects on track.
+    </p>
+    <p>
+      Expect deep dives on LLM-powered products, scheduling engines, property-based testing, and the tooling I rely on in the lab.
+    </p>
+  </div>
+</section>
+
+<section class="section blog-listing">
+  <div class="container blog-list">
+    {% for post in site.posts %}
+    <article class="blog-card">
+      <p class="blog-card-date">
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+      </p>
+      <h2>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </h2>
+      {% if post.description %}
+      <p class="blog-card-description">{{ post.description }}</p>
+      {% else %}
+      <p class="blog-card-description">{{ post.excerpt | strip_html | strip_newlines }}</p>
+      {% endif %}
+      <a class="blog-card-link" href="{{ post.url | relative_url }}">Read the post</a>
+    </article>
+    {% else %}
+    <p class="blog-empty">First post coming soon.</p>
+    {% endfor %}
+  </div>
+</section>

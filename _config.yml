@@ -6,3 +6,10 @@ exclude:
   - .bundle
   - node_modules
   - .gitignore
+permalink: /blog/:title/
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
