@@ -1,5 +1,6 @@
 require "fileutils"
 require "date"
+require "tmpdir"
 
 POSTS_DIR = File.expand_path("_posts", __dir__)
 
@@ -48,4 +49,12 @@ task :new_post, [:title, :date, :slug] do |_t, args|
   File.write(filename, front_matter)
 
   puts "Created #{filename}"
+end
+
+desc "Build the site and fail if any internal links are broken"
+task :check_links do
+  Dir.mktmpdir("jekyll-build-") do |dir|
+    sh "bundle exec jekyll build --destination #{dir}"
+    sh "bundle exec htmlproofer #{dir} --disable-external"
+  end
 end
