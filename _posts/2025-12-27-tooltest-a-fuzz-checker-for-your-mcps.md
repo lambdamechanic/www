@@ -24,7 +24,7 @@ This is table stakes. If you claim I can pass you a string, and you fall in a he
 
 You won't see this as much in typed languages, but it's still common in dynamic ones. You could fairly easily do this without Tooltest, but it's a freebie.
 
-And often the way it manifests in actual agent setups is especially obnoxious: your agent process throws a schema validation error from unfamiliar code, and then the agent heroically tries to cover it up with… whatever it can think of.
+And often the way it manifests in actual agent setups is especially obnoxious: your agent process throws a schema validation error from unfamiliar code, and then the agent heroically tries to cover it up.
 
 (Also: if your JSON Schema uses `pattern`, be aware that Tooltest treats those patterns as ECMAScript regexes — which means fun footguns like ASCII-only `\d` / `\w`. That's a whole category of “it worked in my head” bugs.) 
 
@@ -42,7 +42,7 @@ This is where we depart from basic fuzz testing and start to use state-machine t
 
 One of the problems in both web APIs and MCPs is that they're full of sparse IDs like UUIDs. In order to properly explore the full state space of the server, we need to be able to parrot back IDs that we've fetched from the service in the first place.
 
-So Tooltest maintains a little corpus of values mined from responses. In strict mode, required fields are satisfied from that corpus (plus any seed values you provide). This gives you a brutally honest picture of what an agent can reach starting from scratch.
+So Tooltest maintains a little corpus of values mined from responses. In strict mode, required fields are satisfied from that corpus (plus any seed values you provide). This gives you an honest picture of what an agent can reach starting from scratch.
 
 Example: you have a `create_thing` tool that returns an ID, and a `get_thing` tool that requires that ID. Without sourcing/mining, `get_thing` is basically unreachable unless you seed an ID or the system learns it from `create_thing`.
 
@@ -60,14 +60,14 @@ curl -fsSL https://raw.githubusercontent.com/lambdamechanic/tooltest/main/instal
 
 # test a stdio MCP server
 tooltest stdio --command ./path/to/your-mcp-server
-# optional: --arg ..., --env KEY=VALUE, --cwd /somewhere
 
 # test a Streamable HTTP MCP endpoint
 tooltest http --url http://127.0.0.1:8080/mcp
-# optional: --auth-token "Bearer …"
 
 # make it louder / more repeatable
 tooltest --cases 100 --json stdio --command ./path/to/your-mcp-server
+```
+
 Do NOT run this blindly on MCP servers that have destructive tools. If you have a function that deletes your repositories or fires missiles, Tooltest will merrily call it as often as it can to try to provoke a failure.
 
 TODO: --whitelist is coming (so you can explicitly name the safe tools).
