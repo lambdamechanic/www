@@ -22,11 +22,9 @@ This is table stakes. If you claim I can pass you a string, and you fall in a he
 
 ## outputs that don't fit the output schema you specify
 
-You won't see this as much in typed languages, but it's still common in dynamic ones. You could fairly easily do this without Tooltest, but it's a freebie.
+You won't see this as much in typed languages, but it's still common in dynamic ones. You could fairly easily do this without Tooltest, but it's a freebie. The way it manifests in actual agent setups is especially obnoxious: your agent process throws a schema validation error from unfamiliar code, and then the agent heroically tries to cover it up, so actually debugging why you're getting suboptimal results can be fraught.
 
-And often the way it manifests in actual agent setups is especially obnoxious: your agent process throws a schema validation error from unfamiliar code, and then the agent heroically tries to cover it up.
-
-(Also: if your JSON Schema uses `pattern`, be aware that Tooltest treats those patterns as ECMAScript regexes — which means fun footguns like ASCII-only `\d` / `\w`. That's a whole category of “it worked in my head” bugs.) 
+(For instance, if your JSON Schema uses `pattern`, be aware that Tooltest treats those patterns as ECMAScript regexes — which means fun footguns like ASCII-only `\d` / `\w`. That's a whole category of “it worked in my head” bugs.) 
 
 ## valid _sequences_ of inputs that are rejected
 
@@ -75,4 +73,4 @@ TODO: --blacklist is coming (so you can ban the obviously unsafe tools).
 
 Until those land: point Tooltest at a test instance, or temporarily hide/disable destructive tools in your MCP while fuzzing.
 
-If you want the “agent fixes it while I go do something useful” loop, I have a sample prompt here. Set Codex and Claude to fixing your tool's bugs while you do something more interesting.
+If you want the “agent fixes it while I go do something useful” loop, I have a sample prompt [here](https://github.com/lambdamechanic/tooltest/?tab=readme-ov-file#agent-assisted-fix-loop-prompt). Set Codex and Claude to fixing your tool's bugs while you do something more interesting.
