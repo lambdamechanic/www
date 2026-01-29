@@ -32,7 +32,7 @@ This is a bit less common in MCP tools than web APIs, mostly because most MCPs a
 
 However, if you do have some local state and pinky-promise that it is safe to muck around with, Tooltest can try hammering it with sequences of commands to provoke a state-dependent error.
 
-**TODO:** `--clean-slate` is coming (a hook/tooltest-side callback so it can reset state between runs). Until that lands, run Tooltest against a throwaway instance you can reset out-of-band (containers, temp dirs, disposable accounts, etc).
+To reset state between runs, use `--pre-run-hook "<shell command>"`. The hook runs before tool schema validation and before each generated sequence (including shrink/minimization cases). You can still run Tooltest against a throwaway instance you can reset out-of-band (containers, temp dirs, disposable accounts, etc).
 
 ## tools that are unreachable from a base of primitive values you specify
 
@@ -59,6 +59,9 @@ curl -fsSL https://raw.githubusercontent.com/lambdamechanic/tooltest/main/instal
 # test a stdio MCP server
 tooltest stdio --command ./path/to/your-mcp-server
 
+# include args by quoting the full command line
+tooltest stdio --command "./path/to/your-mcp-server --flag value"
+
 # test a Streamable HTTP MCP endpoint
 tooltest http --url http://127.0.0.1:8080/mcp
 
@@ -68,9 +71,6 @@ tooltest --cases 100 --json stdio --command ./path/to/your-mcp-server
 
 Do NOT run this blindly on MCP servers that have destructive tools. If you have a function that deletes your repositories or fires missiles, Tooltest will merrily call it as often as it can to try to provoke a failure.
 
-TODO: --whitelist is coming (so you can explicitly name the safe tools).
-TODO: --blacklist is coming (so you can ban the obviously unsafe tools).
-
-Until those land: point Tooltest at a test instance, or temporarily hide/disable destructive tools in your MCP while fuzzing.
+Use `--tool-allowlist` (explicitly name safe tools) and `--tool-blocklist` (exclude unsafe tools) to control tool selection. These filters only affect invocation generation and use exact, case-sensitive matches. If you need more isolation, point Tooltest at a test instance or temporarily hide/disable destructive tools in your MCP while fuzzing.
 
 If you want the “agent fixes it while I go do something useful” loop, I have a sample prompt [here](https://github.com/lambdamechanic/tooltest/?tab=readme-ov-file#agent-assisted-fix-loop-prompt). Set Codex and Claude to fixing your tool's bugs while you do something more interesting.
