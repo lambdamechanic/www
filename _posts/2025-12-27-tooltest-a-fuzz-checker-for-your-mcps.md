@@ -6,6 +6,9 @@ author: Mark Wotton
 
 # Tooltest: because agents deserve good tools too
 
+> **TL;DR:** Run Tooltest as an MCP server (`tooltest mcp`).
+> Point your coding agent at that MCP, then tell it to run the built-in fix loop on your MCP.
+
 A hedgehog is a person with one big idea. A fox is one with hundreds of little ones.
 
 By nature I think I'm a fox, but I have now implemented a fuzz checker for Servant and reimplemented Minithesis twice in new languages. It's probably fair to say that property testing is at least a minor hedgehoggian obsession.
@@ -24,7 +27,7 @@ This is table stakes. If you claim I can pass you a string, and you fall in a he
 
 You won't see this as much in typed languages, but it's still common in dynamic ones. You could fairly easily do this without Tooltest, but it's a freebie. The way it manifests in actual agent setups is especially obnoxious: your agent process throws a schema validation error from unfamiliar code, and then the agent heroically tries to cover it up, so actually debugging why you're getting suboptimal results can be fraught.
 
-(For instance, if your JSON Schema uses `pattern`, be aware that Tooltest treats those patterns as ECMAScript regexes — which means fun footguns like ASCII-only `\d` / `\w`. That's a whole category of “it worked in my head” bugs.) 
+(For instance, if your JSON Schema uses `pattern`, be aware that Tooltest treats those patterns as ECMAScript regexes, which means fun footguns like ASCII-only `\d` / `\w`. That's a whole category of “it worked in my head” bugs.)
 
 ## valid _sequences_ of inputs that are rejected
 
@@ -46,9 +49,16 @@ Example: you have a `create_thing` tool that returns an ID, and a `get_thing` to
 
 If you want Tooltest to *bootstrap* from the schema when the corpus is empty, pass `--lenient-sourcing` (or set it in `--state-machine-config`). 
 
+## schema and run linting
+
+Tooltest v0.4.0 includes a lint framework that runs alongside fuzzing and produces warnings or errors.
+Lints are grouped into phases (`list`, `response`, `run`), and each lint can be configured to `error`, `warning`, or `disabled` in a `tooltest.toml` file.
+If you want a starting point, `tooltest config default` prints the built-in configuration template.
+
 # How to use it
 
 The cute part about this is that you mostly don't have to use it at all, or at least not by hand. It's pretty easy to just expose Tooltest to your coding agent, and have the agent fix bugs as it goes. The agent gets full but minimised context (we use shrinking techniques from property-testing), so can usually spot the problem quite quickly.
+The simplest path is to run Tooltest as an MCP server and tell your agent to run the fix loop that the MCP exports.
 
 But it also works as a normal CLI / CI gate:
 
@@ -72,5 +82,3 @@ tooltest --cases 100 --json stdio --command ./path/to/your-mcp-server
 Do NOT run this blindly on MCP servers that have destructive tools. If you have a function that deletes your repositories or fires missiles, Tooltest will merrily call it as often as it can to try to provoke a failure.
 
 Use `--tool-allowlist` (explicitly name safe tools) and `--tool-blocklist` (exclude unsafe tools) to control tool selection. These filters only affect invocation generation and use exact, case-sensitive matches. If you need more isolation, point Tooltest at a test instance or temporarily hide/disable destructive tools in your MCP while fuzzing.
-
-If you want the “agent fixes it while I go do something useful” loop, I have a sample prompt [here](https://github.com/lambdamechanic/tooltest/?tab=readme-ov-file#agent-assisted-fix-loop-prompt). Set Codex and Claude to fixing your tool's bugs while you do something more interesting.
