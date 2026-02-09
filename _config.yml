@@ -1,3 +1,7 @@
+title: LambdaMechanic
+description: LambdaMechanic offers senior software consulting for hard technical problems, LLM systems, and backend architecture.
+url: https://lambdamechanic.com
+
 exclude:
   - AGENTS.md
   - Gemfile
@@ -6,6 +10,8 @@ exclude:
   - .bundle
   - node_modules
   - .gitignore
+plugins:
+  - jekyll-feed
 permalink: /blog/:title/
 defaults:
   - scope:
