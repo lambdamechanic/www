@@ -449,7 +449,7 @@ h1 {
 .contact-card {
   display: grid;
   gap: 2.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
   align-items: center;
   padding: 3rem;
   border-radius: 28px;
@@ -476,6 +476,7 @@ h1 {
 .contact-link {
   color: var(--accent);
   font-weight: 600;
+  overflow-wrap: anywhere;
 }
 
 .contact-actions {
@@ -712,4 +713,8 @@ h1 {
 .post-back-link {
   color: var(--accent-strong);
   font-weight: 600;
+}
+
+#labs {
+  margin-top: 2rem;
 }

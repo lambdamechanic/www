@@ -1,57 +1,42 @@
 ---
 layout: default
-title: LLM-Driven Data Extraction
-description: How LambdaMechanic turns a single URL prompt into production-ready crawlers with Arachnomancer.
+title: Arachnomancer · LLM-Assisted Data Extraction
+description: An experiment by Mark Wotton in using LLMs to build data extraction pipelines with deterministic selectors.
 ---
 
 <section class="section lab-detail" id="lab-llm-data-extraction">
   <div class="container">
-    <h1>LLM-Driven Data Extraction</h1>
+    <p class="eyebrow">Lab notes</p>
+    <h1>Arachnomancer: LLM-assisted data extraction</h1>
     <p>
-      Arachnomancer powers this lab build: an autonomous crawler factory that turns a seed URL and schema sketch into a typed scraper in under an hour.
+      Arachnomancer is an experiment in using LLMs to help turn a seed URL and a description of the desired data into a scraper.
+      The aim is to use a model to discover structure, then capture that structure in deterministic selectors that can be inspected and tested.
     </p>
-    <p>
-      It discovers the right pages, narrows the HTML to what matters, and lets LLMs propose the structure before we lock everything back into deterministic selectors your team can own.
-    </p>
-    <h2>What teams get</h2>
+    <h2>The approach</h2>
     <ul>
       <li>
-        <strong>Schema-first delivery.</strong>
-        You define the fields you need and receive production Scrapy projects that emit JSON or CSV straight into your pipeline.
+        <strong>Find candidate pages.</strong>
+        Explore links from the seed site and distinguish navigation from pages containing the desired items.
       </li>
       <li>
-        <strong>Repeatable launches.</strong>
-        Cached plans, reusable primitives, and simulated runs keep new collectors shipping in minutes instead of weeks.
+        <strong>Isolate useful content.</strong>
+        Remove shared boilerplate and ask an LLM to propose fields and example values.
       </li>
       <li>
-        <strong>Operational guardrails.</strong>
-        Generative tests and proxy-aware fetchers catch anti-bot traps and schema drift before anything hits production.
+        <strong>Generate and check selectors.</strong>
+        Derive XPath or JSON selectors from those examples and validate the extracted data.
       </li>
     </ul>
-    <h2>Inside the pipeline</h2>
-    <ul>
-      <li>
-        <strong>Target discovery.</strong>
-        We triage every link off the seed domain, score the ones that look like real items, and learn navigation patterns automatically.
-      </li>
-      <li>
-        <strong>Signal isolation.</strong>
-        Shared boilerplate is stripped away, then an LLM proposes candidate fields and example values for the item pages we keep.
-      </li>
-      <li>
-        <strong>Selector synthesis.</strong>
-        Deterministic XPath and JSON selectors are mined from those examples, validated with automated scoring, and packaged as code you can extend.
-      </li>
-    </ul>
-    <h2>Why it matters</h2>
+    <h2>The engineering question</h2>
     <p>
-      Teams collecting market or compliance data can stand up new crawlers on demand with deterministic code they can own and extend.
+      Where does an LLM help with an unfamiliar site, and where is ordinary code easier to trust?
+      This experiment explores that boundary, along with caching, repeatable runs and tests for extraction behaviour.
     </p>
     <p>
-      Want to talk through the architecture or adapt it to your domain?
+      The related <a class="card-link" href="{{ '/labs/shake-llm-pipeline/' | relative_url }}">Shake pipeline experiment</a> looks at dependency tracking for this kind of workflow.
     </p>
     <div class="lab-cta">
-      <a class="btn primary" href="https://calendly.com/mark-lambdamechanic/30min">Start your agent build</a>
+      <a class="btn primary" href="https://calendly.com/mark-lambdamechanic/30min">Let’s talk about your system</a>
     </div>
     <p>
       <a href="{{ '/' | relative_url }}">← Back to LambdaMechanic</a>

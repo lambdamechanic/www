@@ -1,59 +1,28 @@
 ---
 layout: default
-title: LambdaMechanic Consulting
-description: LambdaMechanic offers senior software consulting for hard technical problems, LLM systems, and backend architecture.
+title: Mark Wotton · Independent Principal Engineer
+description: Mark Wotton solves difficult software problems, from unreliable AI agents and slow backends to constraint optimisation and systems where correctness matters. 25+ years of engineering experience.
 homepage: true
 ---
 
 <section class="hero">
   <div class="container hero-grid">
     <div class="hero-intro">
-      <p class="eyebrow">Fractional CTO &amp; Principal Engineer</p>
+      <p class="eyebrow">Independent Principal Engineer</p>
       <h1>Ship the hardest&nbsp;10%</h1>
     </div>
     <div class="hero-copy">
       <p class="lede">
-        I help engineering teams ship ambitious systems, from LLM-powered platforms and correctness-first backends to production-ready infrastructure when it matters most.
+        I’m Mark Wotton.
+        I help engineering teams solve the problems that resist ordinary development: unreliable AI agents, difficult optimisation problems, slow backends and systems where correctness matters.
+      </p>
+      <p>
+        I bring 25+ years of engineering experience, a bias toward testing and measurement, and the ability to get productive in unfamiliar systems quickly.
       </p>
       <div class="hero-actions">
-        <a class="btn primary" href="https://calendly.com/mark-lambdamechanic/30min">Start your agent build</a>
+        <a class="btn primary" href="https://calendly.com/mark-lambdamechanic/30min">Let’s talk about your system</a>
+        <a class="card-link" href="mailto:mark@lambdamechanic.com">Email Mark</a>
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="services">
-  <div class="container">
-    <div class="section-heading">
-      <h2>Consulting Services</h2>
-      <p>
-        Engagements scale from architecting a critical feature to integrating LLM-driven components deep in your stack.
-      </p>
-    </div>
-    <div class="grid two">
-      <article class="card">
-        <h3>LLM &amp; AI Systems</h3>
-        <p>
-          Scope, prototype, and ship agents, retrieval workflows, and automations that deliver measurable outcomes.
-        </p>
-        <ul>
-          <li>Agent &amp; LLM workflow design</li>
-          <li>Prompt optimisation &amp; evaluation</li>
-          <li>Fast, parallel LLM eval via dataflow modelling</li>
-          <li>Latency &amp; cost optimisation</li>
-        </ul>
-      </article>
-      <article class="card">
-        <h3>Backend Architecture</h3>
-        <p>
-          Untangle complex services, introduce type-safe interfaces, and build systems that stay correct under load.
-        </p>
-        <ul>
-          <li>Domain modelling and API design</li>
-          <li>Performance profiling and remediation</li>
-          <li>Fast, comprehensive testing with fuzzing &amp; property suites</li>
-        </ul>
-      </article>
     </div>
   </div>
 </section>
@@ -61,133 +30,139 @@ homepage: true
 <section class="section alt" id="engagements">
   <div class="container">
     <div class="section-heading">
-      <h2>Selected Engagements</h2>
-      <p>
-        A sampling of the problems I’ve solved for startups, scale-ups, and enterprise teams over the past decade.
-      </p>
+      <h2>Selected results</h2>
     </div>
-    <div class="grid two">
+    <div class="grid three">
       <article class="card highlight">
-        <h3>LLM Categorisation for BetterTeam</h3>
+        <h3>Multiple minutes to under 500&nbsp;ms</h3>
         <p>
-          Built a repeatable LLM pipeline to triage outbound sales leads, using dataflow modelling for cacheable prompts and parallel categorisation that keeps throughput high while controlling cost.
+          Diagnosed and rewrote a latency-sensitive Haskell service for a Sydney startup, reducing response times from multiple minutes to under 500 milliseconds while maintaining correctness.
         </p>
       </article>
       <article class="card highlight">
-        <h3>HosPortal AI Scheduling</h3>
+        <h3>HosPortal: constraint-based rostering</h3>
         <p>
-          Surveyed the literature and solver landscape, selected a best-in-class Java optimisation engine, and wrapped it in a clean OpenAPI bridge to the TypeScript web app, backed by generative tests that prevent integration drift in HosPortal’s flagship AI scheduler.
+          Recognised a difficult rostering problem as constraint optimisation, selected and integrated a solver, and built a clean interface to the existing application.
+          Used property-based tests to check correspondence between the application and solver models.
         </p>
-        <a class="card-link" href="https://www.hosportal.com/features/ai/">Learn more</a>
+        <a class="card-link" href="https://www.hosportal.com/features/ai/">HosPortal’s roster builder</a>
       </article>
       <article class="card highlight">
-        <h3>Mission-Critical Optimisation</h3>
+        <h3>BetterTeam: LLM categorisation</h3>
         <p>
-          Diagnosed and rewrote a latency-sensitive Haskell service for a Sydney startup, dropping response times from multiple minutes to under 500 ms while preserving correctness guarantees.
+          Built a repeatable pipeline to categorise outbound sales leads.
+          Modelled the work as a dataflow, caching LLM calls and running independent categorisation steps concurrently to manage throughput and API cost.
         </p>
       </article>
     </div>
   </div>
 </section>
 
-<section class="section" id="labs">
+<section class="section" id="services">
   <div class="container">
     <div class="section-heading">
-      <h2>In-house R&amp;D</h2>
+      <h2>What I work on</h2>
       <p>
-        Exploratory builds we’re proving out before they hit client roadmaps.
+        Sometimes the implementation needs work.
+        Sometimes the assumption underneath it does.
+        I help work out which, then build the solution.
       </p>
     </div>
-    <div class="grid two">
-      <article class="card highlight">
-        <h3>LLM-Driven Data Extraction</h3>
+    <div class="grid three">
+      <article class="card">
+        <h3>Production AI reliability</h3>
         <p>
-          Autonomous crawler factory delivering production-grade scrapers in minutes.
+          Agents that impress in a demo still need to behave reliably in production.
+          I work on orchestration, tool execution, context handling and evaluation, with attention to failure modes, latency and cost.
         </p>
-        <a class="card-link" href="{{ '/labs/llm-data-extraction/' | relative_url }}">Learn more</a>
       </article>
-      <article class="card highlight">
-        <h3>Shake-Based LLM Pipeline Framework</h3>
+      <article class="card">
+        <h3>Complex backends &amp; optimisation</h3>
         <p>
-          Shake-based recomputation unlocks parallel, low-cost agent runs.
+          Distributed systems, data pipelines, performance bottlenecks and difficult algorithms.
+          I look for established mathematical solutions, model the domain carefully, and use strong interfaces and generative tests to keep the implementation honest.
         </p>
-        <a class="card-link" href="{{ '/labs/shake-llm-pipeline/' | relative_url }}">Learn more</a>
+      </article>
+      <article class="card">
+        <h3>An embedded Principal Engineer</h3>
+        <p>
+          Substantial technical ownership, from understanding an unfamiliar codebase to shipping working software.
+          I prefer long-running engagements where I can work closely with a team, build ambitious systems and take responsibility for the result.
+        </p>
       </article>
     </div>
   </div>
 </section>
 
-<section class="section" id="expertise">
+<section class="section alt" id="expertise">
   <div class="container">
     <div class="section-heading">
-      <h2>Expertise &amp; Tooling</h2>
+      <h2>Code, tests &amp; technical writing</h2>
       <p>
-        25+ years of shipping systems across sectors, always choosing the technology that best fits the problem.
+        A closer look at how I approach software that needs to work.
       </p>
     </div>
-    <div class="expertise-grid">
-      <div class="expertise-chip">
-        <strong>Languages</strong>
-        <span>Haskell · Python · TypeScript · Rust · Java · Go</span>
+    <article class="card highlight">
+      <h3>Tooltest: because agents deserve good tools too</h3>
+      <p>
+        My property-based and fuzz testing tool for Model Context Protocol (MCP) servers checks the contracts tools advertise.
+        It finds valid inputs a server rejects, outputs that don’t match their schemas, and failures in stateful tool sequences.
+      </p>
+      <p>
+        Coding agents can be surprisingly good at working around a broken tool.
+        Tooltest gives them a smaller, reproducible failure to diagnose instead.
+      </p>
+      <div class="hero-actions">
+        <a class="card-link" href="{% post_url 2026-02-09-tooltest-a-fuzz-checker-for-your-mcps %}">Read the Tooltest article</a>
+        <a class="card-link" href="https://github.com/lambdamechanic/tooltest">Tooltest on GitHub</a>
       </div>
-      <div class="expertise-chip">
-        <strong>Domains</strong>
-        <span>LLMs · testing · scheduling · web data</span>
-      </div>
-      <div class="expertise-chip">
-        <strong>Patterns</strong>
-        <span>Typed contracts · generative QA · dataflow design</span>
-      </div>
+    </article>
+    <div class="grid two" id="labs">
+      <article class="card">
+        <h3>Arachnomancer</h3>
+        <p>
+          An experiment in using LLMs to help build data extraction pipelines, with deterministic selectors as the output.
+        </p>
+        <a class="card-link" href="{{ '/labs/llm-data-extraction/' | relative_url }}">Read about the experiment</a>
+      </article>
+      <article class="card">
+        <h3>Shake-based LLM pipelines</h3>
+        <p>
+          Exploring build-system dependency tracking for LLM workflows: cached calls, parallel work and selective recomputation when inputs change.
+        </p>
+        <a class="card-link" href="{{ '/labs/shake-llm-pipeline/' | relative_url }}">Read the technical outline</a>
+      </article>
     </div>
-  </div>
-</section>
-
-<section class="section alt" id="approach">
-  <div class="container">
-    <div class="section-heading">
-      <h2>How engagements work</h2>
-    </div>
-    <ol class="approach-steps">
-      <li>
-        <h3>1. Diagnose</h3>
-        <p>Clarify the sharp constraint and define a measurable win.</p>
-      </li>
-      <li>
-        <h3>2. Architect</h3>
-        <p>Design a pragmatic plan with a first win in week one.</p>
-      </li>
-      <li>
-        <h3>3. Deliver</h3>
-        <p>Partner with your team to ship and leave durable tooling.</p>
-      </li>
-    </ol>
   </div>
 </section>
 
 <section class="section" id="about">
   <div class="container about-grid">
     <div>
-      <h2>About LambdaMechanic</h2>
+      <h2>About Mark</h2>
       <p>
-        I’m Mark Wotton, an experienced builder of high-stakes software systems.
-        My work spans startups like BetterTeam, MeanPath/Leadstage and NinjaBlocks, enterprise security firms like SimSpace, and a constellation of startups that needed deep technical leverage fast.
+        LambdaMechanic is my independent consulting practice.
+        Over 25+ years, I’ve worked across startups, enterprise security, scheduling, web data and backend systems, using languages including Haskell, Python, TypeScript, Rust, Java and Go.
+      </p>
+      <p id="approach">
+        I start by understanding the system and measuring what it actually does.
+        Then I test the assumptions, choose an approach that fits the problem, and carry it through to working software.
+        I’m comfortable working independently and getting into the details with the engineers who know the system best.
       </p>
       <p>
-        I created LambdaMechanic to partner with teams tackling algorithmically demanding products, data-heavy platforms, and LLM experiences where correctness matters.
-        If your roadmap includes a tricky system that must work the first time, let’s talk.
+        I’m looking for hands-on engineering work with room to make a lasting contribution.
       </p>
     </div>
     <aside class="about-card">
-      <h3>Availability</h3>
+      <h3>Based in Da Nang, Vietnam</h3>
       <p>
-        Limited openings for late 2025.
-        Remote-first with on-site engagements available.
+        I work remotely with international clients.
       </p>
       <h3>Past collaborators</h3>
       <ul>
-        <li><a href="https://www.hosportal.com.au">hosportal.com.au</a></li>
-        <li><a href="https://paidright.io">paidright.io</a></li>
-        <li><a href="https://www.betterteam.com">betterteam.com</a></li>
+        <li><a href="https://www.hosportal.com/features/ai/">HosPortal</a></li>
+        <li><a href="https://paidright.io">PaidRight</a></li>
+        <li><a href="https://www.betterteam.com">BetterTeam</a></li>
       </ul>
     </aside>
   </div>
@@ -196,16 +171,16 @@ homepage: true
 <section class="section contact" id="contact">
   <div class="container contact-card">
     <div>
-      <h2>Start a project</h2>
+      <h2>Discuss a difficult engineering problem</h2>
       <p>
-        Tell me about the problem you need solved and the timeline you’re working with.
-        I’ll follow up within two business days.
+        Tell me what you’re building, where you’re stuck and what a useful result would look like.
+        An email or a short call is a good place to start.
       </p>
     </div>
     <div class="contact-details">
       <div class="contact-actions">
         <a class="contact-link" href="mailto:mark@lambdamechanic.com">mark@lambdamechanic.com</a>
-        <a class="btn primary" href="https://calendly.com/mark-lambdamechanic/30min">Start your agent build</a>
+        <a class="btn primary" href="https://calendly.com/mark-lambdamechanic/30min">Let’s talk about your system</a>
       </div>
     </div>
   </div>
