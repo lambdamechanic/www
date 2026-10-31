@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Arachnomancer · LLM-Assisted Data Extraction
-description: An experiment by Mark Wotton in using LLMs to build data extraction pipelines with deterministic selectors.
+description: How Arachnomancer uses LLMs to discover website structure and generate deterministic, testable scrapers.
 ---
 
 <section class="section lab-detail" id="lab-llm-data-extraction">
@@ -9,8 +9,9 @@ description: An experiment by Mark Wotton in using LLMs to build data extraction
     <p class="eyebrow">Lab notes</p>
     <h1>Arachnomancer: LLM-assisted data extraction</h1>
     <p>
-      Arachnomancer is an experiment in using LLMs to help turn a seed URL and a description of the desired data into a scraper.
-      The aim is to use a model to discover structure, then capture that structure in deterministic selectors that can be inspected and tested.
+      Arachnomancer uses LLMs to discover the structure of unfamiliar websites and generate deterministic, testable scrapers.
+      Starting from a seed URL and a description of the desired data, it uses models for discovery and inference, then captures the results as ordinary code.
+      That code uses deterministic selectors and can be tested and maintained without asking a model to interpret every page.
     </p>
     <h2>The approach</h2>
     <ul>
@@ -30,7 +31,7 @@ description: An experiment by Mark Wotton in using LLMs to build data extraction
     <h2>The engineering question</h2>
     <p>
       Where does an LLM help with an unfamiliar site, and where is ordinary code easier to trust?
-      This experiment explores that boundary, along with caching, repeatable runs and tests for extraction behaviour.
+      I use Arachnomancer to explore that boundary, along with caching, repeatable runs and tests for extraction behaviour.
     </p>
     <p>
       The related <a class="card-link" href="{{ '/labs/shake-llm-pipeline/' | relative_url }}">Shake pipeline experiment</a> looks at dependency tracking for this kind of workflow.
