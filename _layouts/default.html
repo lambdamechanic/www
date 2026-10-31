@@ -3,8 +3,22 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{% if page.title %}{{ page.title }} · LambdaMechanic{% else %}LambdaMechanic Consulting{% endif %}</title>
-    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}LambdaMechanic offers senior software consulting for hard technical problems, LLM systems, and backend architecture.{% endif %}" />
+    {% capture page_title %}{% if page.title %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }}{% endif %}{% endcapture %}
+    {% assign page_description = page.description | default: site.description %}
+    <title>{{ page_title | escape }}</title>
+    <meta name="description" content="{{ page_description | escape }}" />
+    <link rel="canonical" href="{{ page.url | absolute_url }}" />
+    <meta property="og:title" content="{{ page_title | escape }}" />
+    <meta property="og:description" content="{{ page_description | escape }}" />
+    <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}" />
+    <meta property="og:url" content="{{ page.url | absolute_url }}" />
+    <meta property="og:site_name" content="{{ site.title | escape }}" />
+    <meta property="og:image" content="{{ '/logo.png' | absolute_url }}" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:height" content="1024" />
+    <meta property="og:image:alt" content="LambdaMechanic logo" />
+    <meta name="twitter:card" content="summary" />
     <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="32x32" />
     <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}" />
     <link rel="alternate" type="application/atom+xml" title="LambdaMechanic" href="{{ '/feed.xml' | relative_url }}" />
@@ -21,12 +35,12 @@
           />
         </a>
         <nav class="nav" aria-label="Primary" id="primary-navigation">
-          <a href="{{ '/' | relative_url }}#services">Services</a>
-          <a href="{{ '/' | relative_url }}#engagements">Engagements</a>
-          <a href="{{ '/' | relative_url }}#expertise">Expertise</a>
-          <a href="{{ '/' | relative_url }}#approach">Approach</a>
+          <a href="{{ '/' | relative_url }}#engagements">Results</a>
+          <a href="{{ '/' | relative_url }}#services">What I work on</a>
+          <a href="{{ '/' | relative_url }}#expertise">Code &amp; writing</a>
           <a href="{{ '/blog/' | relative_url }}">Blog</a>
           <a href="{{ '/' | relative_url }}#about">About</a>
+          <a href="{{ '/' | relative_url }}#contact">Contact</a>
         </nav>
         <button
           aria-controls="primary-navigation"
@@ -46,7 +60,7 @@
     </main>
     <footer class="site-footer">
       <div class="container footer-inner">
-        <span>© 2025 LambdaMechanic. All rights reserved.</span>
+        <span>© {{ site.time | date: "%Y" }} LambdaMechanic. All rights reserved.</span>
         <div class="footer-links">
           <a href="https://github.com/lambdamechanic">gh/lambdamechanic</a>
           <a href="https://github.com/mwotton">gh/mwotton</a>
